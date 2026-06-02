@@ -1,7 +1,7 @@
-import ResponsiveAppBar from "../components/NavBar";
-import HeroVideo from "../components/HeroVideo";
-import Gallery from "../components/Gallery";
-import InfoCard from "../components/InfoCard";
+import ResponsiveAppBar from "../components/NavBar/NavBar";
+import HeroVideo from "../components/HeroVideo/HeroVideo";
+import Gallery from "../components/Gallery/Gallery";
+import InfoCard from "../components/InfoCard/InfoCard";
 import { stories } from "../data/stories";
 
 function Home() {

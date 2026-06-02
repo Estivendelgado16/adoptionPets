@@ -1,4 +1,4 @@
-import StoryCard from "./StoryCard";
+import StoryCard from "../StoryCard/StoryCard";
 
 function Gallery({ stories }) {
   return (
