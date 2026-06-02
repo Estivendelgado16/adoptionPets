@@ -1,21 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavBar.jsx";
-
-import Home from "./pages/Home.jsx";
-import Gallery from "./pages/Gallery";
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import './App.css' // Por si tienes estilos globales aquí
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    <div className="app-container">
+      {/* Si en el futuro quieres un Footer o Navbar global para TODAS las páginas, iría aquí */}
+      <Outlet /> 
+    </div>
+  )
 }
 
 export default App;
