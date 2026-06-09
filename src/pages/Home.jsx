@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar/NavBar";
 import HeroVideo from "../components/HeroVideo/HeroVideo";
 import Gallery from "../components/Gallery/Gallery";
 import InfoCard from "../components/InfoCard/InfoCard";
+import Footer from "../components/Footer/Footer";
 import { stories } from "../data/stories";
 
 function Home() {
@@ -33,6 +34,7 @@ function Home() {
           </div>
         </section>
       </main>
+        <Footer />
     </>
   );
 }

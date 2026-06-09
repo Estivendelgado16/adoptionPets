@@ -1,6 +1,16 @@
+:root {
+  --color-primary: #3f674b;
+}
+
+
 body {
+<<<<<<< HEAD
   margin: 0;
   background: #ffffffee;
+=======
+  margin: 20px;
+  background: #f6f5f2;
+>>>>>>> cba0a581463ca6fecc1a9fbc5de932d7756304c5
   font-family: Inter, sans-serif;
 }
 
