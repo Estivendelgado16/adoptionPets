@@ -1,4 +1,4 @@
-import ResponsiveAppBar from "../components/NavBar/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 import HeroVideo from "../components/HeroVideo/HeroVideo";
 import Gallery from "../components/Gallery/Gallery";
 import InfoCard from "../components/InfoCard/InfoCard";
@@ -7,7 +7,7 @@ import { stories } from "../data/stories";
 function Home() {
   return (
     <>
-      <ResponsiveAppBar />
+      <NavBar />
       <main className="home">
         <HeroVideo />
         <section>

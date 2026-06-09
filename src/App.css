@@ -1,12 +1,11 @@
 body {
   margin: 0;
-  background: #f6f5f2;
+  background: #ffffffee;
   font-family: Inter, sans-serif;
 }
 
 .home {
-  max-width: 1200px;
-  margin: auto;
+  margin: 0 50px;
   padding: 20px;
 }
 
@@ -49,7 +48,7 @@ body {
 }
 
 .story-card {
-  background: white;
+  background: rgb(68, 6, 214);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -71,7 +70,7 @@ body {
 }
 
 .info-card {
-  background: white;
+  background: rgb(13, 240, 240);
   padding: 20px;
   border-radius: 16px;
 }

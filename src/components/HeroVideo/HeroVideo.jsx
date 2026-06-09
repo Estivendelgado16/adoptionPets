@@ -1,23 +1,36 @@
-function InfoCard({
-  title,
-  description,
-  buttonText,
-}) {
+// Subes dos niveles para llegar a la raíz de 'src' y luego entras a assets
+import miVideo from "../../assets/inicio/videoBanner.mp4";
+import "./HeroVideo.css";
+
+
+function HeroVideo() {
   return (
-    <div className="info-card">
+    <section className="hero">
 
-      <h3>{title}</h3>
+      <h1>Historias que Inspiran</h1>
 
-      <p>{description}</p>
+      <p>
+        Conoce las historias que cambiaron vidas.
+      </p>
 
-      {buttonText && (
-        <button>
-          {buttonText}
-        </button>
-      )}
+      <div className="hero-video">
 
-    </div>
+        <video
+          src={miVideo}
+          alt="hero"
+          muted
+          autoPlay
+          loop
+          playsInline
+          className="video-element"
+        >
+          Tu navegador no soporta videos de HTML5.
+        </video>
+
+      </div>
+
+    </section>
   );
 }
 
-export default InfoCard;
+export default HeroVideo;
