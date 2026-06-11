@@ -1,16 +1,89 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div>
+  <img src="./src/assets/adoption.png">
+</div>
 
-Currently, two official plugins are available:
+# PetAdoption 🐾 — Adopt, save, and connect
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**PetAdoption** is a platform built to support responsible adoption: explore success stories, browse ways to adopt, and report lost pets.
 
-## React Compiler
+> Quick tour: open **/adopta** to browse the adoption directory. If you need to report, use **/reportar**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Why PetAdoption?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Real adoption stories**: a gallery of experiences that inspire and guide.
+- **Filterable directory**: reach the right pet faster.
+- **Clear reporting flow**: when you lose (or find) a pet, you’ll know what to do.
+- **Community-first**: designed to help you take action and stay connected.
+
+---
+
+## 🧭 What can you do here?
+
+### 1) Adopt
+Go to **Adopta** to find available pets and filter by your needs.
+
+### 2) Get inspired by the Success Gallery
+On the Home page, you’ll find a **success stories gallery** that highlights the impact of adopting.
+
+### 3) Report
+If you need help with a lost pet, follow the **Reportar** flow.
+
+---
+
+## 📌 How it works (3 steps)
+
+1. **Explore**: open **/adopta** and use filters + pagination.
+2. **Decide**: read stories and success-focused content to build confidence.
+3. **Act**: report and/or take the next step toward adoption.
+
+---
+
+## 💡 Key features
+
+- **Stories / Success Gallery** (Home)
+- **Adoption directory** with card-based UI (AdoptionDirectory)
+- **Lost pet reporting flow** (ReportFlow)
+- **Clear routes** using React Router:
+  - `/` and `/nosotros`
+  - `/adopta`
+  - `/reportar`
+
+---
+
+## 🚀 Tech stack
+
+- **React + Vite**
+- **React Router** (routes for Home / Adopta / Reportar)
+- **CSS + reusable components** (including MUI/Bootstrap where applicable)
+
+---
+
+## 🛠️ Installation & running
+
+### Option A (frontend inside `client/`)
+This repo includes a dedicated frontend project in `client/`.
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### Option B (run from the repo root)
+If you want to run from the root, check which `package.json` applies (the frontend lives in `client/`).
+
+---
+
+## 📣 Calls to action
+
+- **Adopt now:** `/adopta`
+- **Report a lost pet:** `/reportar`
+- **See success stories:** `/`
+
+---
+
+## 🧩 Note
+This landing page copy is aligned with the routes and sections present in the project (Hero, Success Gallery, Adoption Directory, and the reporting flow).
