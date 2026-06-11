@@ -1,6 +1,6 @@
 
-<div>
-  <img src="./src/assets/adoption.png">
+<div align="center">
+  <img src="./src/assets/adoption.png" alt="adoption" width="100%">
 </div>
 
 # PetAdoption 🐾 — Adopt, save, and connect
