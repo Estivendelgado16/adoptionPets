@@ -1,0 +1,19 @@
+.report-intro {
+  background: linear-gradient(135deg, #f2f8f3 0%, #fbfcf7 80%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+  border: none;
+}
+
+.report-intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.report-intro p {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  line-height: 1.7;
+}

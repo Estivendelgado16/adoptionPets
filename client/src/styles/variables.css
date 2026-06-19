@@ -1,0 +1,36 @@
+:root {
+  --color-background: #f9faf5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f2f5f0;
+  --color-surface-strong: #e5f0e8;
+  --color-border: #dfe7e0;
+  --color-border-strong: #c7d5c9;
+  --color-text: #1f3524;
+  --color-text-muted: #506855;
+  --color-text-soft: #6f8473;
+  --color-accent: #2e7d4b;
+  --color-accent-dark: #1b4f33;
+  --color-accent-light: #e8f4eb;
+  --color-warning: #ffd6d6;
+  --color-warning-text: #9f1f2b;
+  --color-new: #ffebce;
+  --color-new-text: #8c4b00;
+
+  --radius-xl: 36px;
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+
+  --shadow-soft: 0 20px 48px rgba(21, 52, 33, 0.12);
+  --shadow-medium: 0 24px 60px rgba(18, 47, 29, 0.16);
+  --shadow-strong: 0 30px 70px rgba(16, 42, 26, 0.2);
+
+  --font-sans: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "DM Serif Display", "Georgia", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}

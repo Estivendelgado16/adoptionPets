@@ -1,0 +1,50 @@
+.adoption-directory {
+  color: var(--color-text);
+  text-align: left;
+}
+
+.adoption-header__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-text-muted);
+}
+
+.adoption-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 3fr);
+  gap: 48px;
+}
+
+.adoption-sidebar {
+  display: grid;
+  gap: 24px;
+  align-content: start;
+}
+
+.adoption-results {
+  display: grid;
+  gap: 32px;
+}
+
+@media (max-width: 1280px) {
+  .adoption-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .adoption-sidebar {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .adoption-header__action {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .adoption-sidebar {
+    grid-template-columns: 1fr;
+  }
+}

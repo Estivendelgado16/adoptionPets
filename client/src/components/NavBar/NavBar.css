@@ -1,0 +1,87 @@
+.separadorB {
+  width: 100%;
+  border-bottom: 1px solid #e2e8f0; /* Un gris sutil estilo Tailwind/UI moderna */
+  background-color: #fcfbfa; /* O el color de fondo exacto de tu app */
+}
+
+/* 2. Tu contenedor mantiene el espacio, pero le quitamos el padding horizontal */
+/* ya que los márgenes se encargan de empujar el contenido hacia adentro */
+.ContNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 0; /* Arriba/Abajo 20px, Izquierda/Derecha 0 */
+  margin: 0 50px;
+}
+
+.separadorA {
+  border-right: 1px solid #cccccc;
+  padding-right: 50px;
+}
+
+
+.logo {
+  font-size: 34px;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  padding: 0 40px 0 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-links a.active {
+  font-weight: 700;
+  color: #111;
+}
+
+.user-actions {
+  display: flex;
+  gap: 30px;
+}
+
+.notificacion {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .ContNavbar {
+    margin: 0 16px;
+    padding: 16px 12px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    padding-right: 0;
+  }
+
+  .separadorA {
+    padding-right: 18px;
+  }
+}
+

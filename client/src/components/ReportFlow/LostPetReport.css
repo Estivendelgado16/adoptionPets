@@ -1,0 +1,17 @@
+.lost-report {
+  color: var(--color-text);
+  text-align: left;
+}
+
+.lost-report__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 1.15fr);
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 1280px) {
+  .lost-report__layout {
+    grid-template-columns: 1fr;
+  }
+}

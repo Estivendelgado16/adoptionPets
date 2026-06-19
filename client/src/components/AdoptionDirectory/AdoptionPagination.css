@@ -1,0 +1,24 @@
+.adoption-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--color-text-muted);
+}
+
+.adoption-pagination .btn-pill {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+}
+
+.adoption-pagination .btn-pill.is-active {
+  box-shadow: var(--shadow-medium);
+}
+
+.pagination-ellipsis {
+  font-weight: 700;
+  font-family: var(--font-sans);
+}

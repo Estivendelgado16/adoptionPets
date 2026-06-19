@@ -1,0 +1,21 @@
+.page-shell {
+  margin: 0 90px;
+  padding: 72px 0 120px;
+  display: grid;
+  gap: 48px;
+}
+
+@media (max-width: 1280px) {
+  .page-shell {
+    margin: 0 60px;
+    padding: 60px 0 96px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-shell {
+    margin: 0 28px;
+    padding: 44px 0 80px;
+    gap: 36px;
+  }
+}

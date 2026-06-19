@@ -1,0 +1,23 @@
+.home {
+  color: var(--color-text);
+  text-align: left;
+  gap: 72px;
+}
+
+.home .hero {
+  align-items: flex-start;
+  text-align: left;
+  gap: 18px;
+}
+
+.home .hero p {
+  max-width: 560px;
+  color: var(--color-text-muted);
+}
+
+.home .hero-video {
+  width: 100%;
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}

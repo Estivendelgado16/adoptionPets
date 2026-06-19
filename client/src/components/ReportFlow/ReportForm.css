@@ -1,0 +1,195 @@
+.report-form {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+}
+
+.report-form__grid {
+  display: grid;
+  gap: 28px;
+}
+
+.report-form__identity {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.report-field {
+  display: grid;
+  gap: 12px;
+}
+
+.report-field label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.report-field input,
+.report-field textarea,
+.select-field select {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-muted);
+  padding: 14px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--color-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.report-field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.report-field input:focus,
+.report-field textarea:focus,
+.select-field select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(47, 125, 75, 0.2);
+}
+
+.select-field {
+  position: relative;
+}
+
+.select-field select {
+  appearance: none;
+  padding-right: 40px;
+}
+
+.select-field::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+}
+
+.report-field__hint {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-soft);
+}
+
+.map-placeholder {
+  border-radius: var(--radius-lg);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    radial-gradient(circle at top, rgba(37, 82, 56, 0.28), rgba(24, 46, 33, 0.55)),
+    #3e7f5a;
+  background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%;
+}
+
+.map-pin {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.map-pin svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.map-placeholder p {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.upload-dropzone {
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  background: var(--color-surface-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  color: var(--color-text);
+}
+
+.upload-dropzone:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-strong);
+}
+
+.upload-dropzone input {
+  display: none;
+}
+
+.upload-dropzone__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(47, 125, 75, 0.12);
+  display: grid;
+  place-items: center;
+  color: var(--color-accent);
+}
+
+.upload-dropzone__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.upload-dropzone p {
+  font-weight: 600;
+}
+
+.upload-dropzone span {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+.report-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.report-form__actions .btn {
+  min-width: 150px;
+}
+
+@media (max-width: 992px) {
+  .report-form__identity {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .report-form__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .report-form__actions .btn {
+    width: 100%;
+  }
+}

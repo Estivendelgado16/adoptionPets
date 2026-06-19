@@ -1,0 +1,16 @@
+.tip-card {
+  background: var(--color-surface-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.tip-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.tip-card p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}

@@ -1,0 +1,21 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.tag--accent {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.tag--warning {
+  background: var(--color-warning);
+  color: var(--color-warning-text);
+}
