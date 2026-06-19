@@ -1,0 +1,27 @@
+import express from 'express';
+import cors from 'cors';
+import petRoutes from './src/modules/pets/pets.routes.js';
+import storiesRoutes from './src/modules/stories/stories.routes.js';
+import connectDB from './shared/database/connection.js';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.use('/api/pets', petRoutes);
+app.use('/api/stories', storiesRoutes)
+
+
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.status(500).json({ message: 'Error interno del servidor' });
+});
+
+const PORT = process.env.PORT || 3001;
+
+async function start(){
+    await connectDB();
+    app.listen(PORT, () => console.log(`Server on port ${PORT}`));
+}
+
+start();
