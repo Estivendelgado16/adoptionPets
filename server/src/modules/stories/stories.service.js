@@ -5,5 +5,5 @@ export const getAllStories = async () => {
 }
 
 export const getStoriesById = async (id) => {
-    return await storiesRepository.findById(Number(id));
+    return await storiesRepository.findById(id);
 };

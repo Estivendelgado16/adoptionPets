@@ -5,6 +5,6 @@ export const getAllPets = async () => {
 };
 
 export const getPetById = async (id) => {
-    return await petRepository.findById(Number(id));
+    return await petRepository.findById(id);
 };
 

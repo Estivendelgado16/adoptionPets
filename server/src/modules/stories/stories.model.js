@@ -1,16 +1,24 @@
-class Story {
-    constructor({ id, petName, title, quote, image, author, location, badge, accentColor, authorAvatar  }) {
-        this.id = id;
-        this.petName = petName;
-        this.title = title;
-        this.quote = quote;
-        this.image = image;
-        this.author = author;
-        this.location = location;
-        this.badge = badge;
-        this.accentColor = accentColor;
-        this.authorAvatar = authorAvatar
-    }
-};
+import mongoose from "mongoose";
 
-export default Story;
+const storySchema = new mongoose.Schema({
+    id: { type: Number, unique: true },
+    petName: String,
+    title: String,
+    quote: String,
+    image: String,
+    author: String,
+    location: String,
+    badge: String,
+    accentColor: String,
+    authorAvatar: String,
+});
+
+storySchema.set('toJSON', {
+  transform: (doc, ret) => {
+    delete ret._id;
+    delete ret.__v;
+    return ret;
+  }
+});
+
+export default mongoose.model('Story', storySchema)
