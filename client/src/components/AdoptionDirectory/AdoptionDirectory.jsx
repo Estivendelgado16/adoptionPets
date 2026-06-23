@@ -37,15 +37,8 @@ function AdoptionDirectory() {
   useEffect(() => {
     fetch("/api/pets")
       .then((res) => res.json())
-      .then((res) => {
-        const mapped = res.data.map((p) => ({
-          ...p,
-          image: p.images?.[0],
-          status: p.statusLabel
-            ? { label: p.statusLabel, variant: p.status === "Urgente" ? "urgent" : "new" }
-            : undefined,
-        }));
-        setPets(mapped);
+      .then((data) => {
+        setPets(data);
       })
       .catch(console.error);
   }, []);

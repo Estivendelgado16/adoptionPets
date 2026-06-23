@@ -105,7 +105,7 @@ async function seed() {
             location: "Bilbao, ES",
             badge: "Seguimiento positivo",
             accentColor: "#e7f2f5",
-            authorAvatar: "https://i.pravatar.cc/80?img=19",
+            authorAvatar: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80",
         },
     ];
 
