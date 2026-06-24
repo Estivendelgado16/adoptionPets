@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import connectDB from './shared/database/connection.js';
 import petRoutes from './src/modules/pets/pets.routes.js';
 import storiesRoutes from './src/modules/stories/stories.routes.js';
-import connectDB from './shared/database/connection.js';
+import authRoutes from './src/modules/auth/auth.routes.js';
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ app.use((req, res, next) =>{
 
 app.use('/api/pets', petRoutes);
 app.use('/api/stories', storiesRoutes)
+app.use('api/auth', authRoutes )
 
 
 app.use((err, req, res, next) => {
