@@ -22,7 +22,7 @@ app.use((req, res, next) =>{
 
 app.use('/api/pets', petRoutes);
 app.use('/api/stories', storiesRoutes)
-app.use('api/auth', authRoutes )
+app.use('/api/auth', authRoutes )
 
 
 app.use((err, req, res, next) => {
