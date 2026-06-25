@@ -5,15 +5,15 @@ export class AppError extends Error {
         this.statusCode = statusCode;
         this.isOperational = true; //is a error controlled by us
 
-        Error.captureStackTrace(this, this.cause.constructor);
+        Error.captureStackTrace(this, this.constructor);
     };
 };
 
 
 // error 400: for invalid input data, missing or duplicate fields
 export class BadRequestError extends AppError {
-    constructor(menssage = 'Invalid request') {
-        super(this.message, 400)
+    constructor(message = 'Invalid request') {
+        super(message, 400)
     };
 };
 
