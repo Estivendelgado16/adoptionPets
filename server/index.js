@@ -4,6 +4,7 @@ import connectDB from './shared/database/connection.js';
 import petRoutes from './src/modules/pets/pets.routes.js';
 import storiesRoutes from './src/modules/stories/stories.routes.js';
 import authRoutes from './src/modules/auth/auth.routes.js';
+import { errorHandler } from './shared/middlewares/errorHandler.js';
 
 const app = express();
 app.use(cors());
@@ -25,11 +26,7 @@ app.use('/api/stories', storiesRoutes)
 app.use('/api/auth', authRoutes )
 
 
-app.use((err, req, res, next) => {
-    
-    console.log(err);
-    res.status(500).json({ message: 'Error interno del servidor' });
-});
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
 

@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import * as authRepository from './auth.repository.js';
+import { BadRequestError, UnauthorizedError } from '../../../shared/errors/AppError.js';
 
 // register user
 export const registerUser = async ({ username, email, phone, password}) => {
@@ -9,14 +10,14 @@ export const registerUser = async ({ username, email, phone, password}) => {
     const existingEmail = await authRepository.findByEmail(email);
     if (existingEmail) {
         console.log(`[AuthService] registerUser: email ${email} It is already in use`);
-        throw new Error("The email address is already registered.");
+        throw new BadRequestError("The email address is already registered.");
     }
 
     // verify if the  username exist
     const existingUsername = await authRepository.findByUsername(username);
     if (existingUsername) {
         console.log(`[AuthService] registerUser: user ${username} it's already in use`);
-        throw new Error("the username is already in use");
+        throw new BadRequestError("The username is already in use.");
         
     }
 
@@ -48,14 +49,14 @@ export const loginUser = async (email, password) => {
     const user = await authRepository.findByEmail(email);
     if(!user) {
         console.log(`[AuthService] loginUser: user ${email} not found`);
-        throw new Error("Incorrect credentials.");
+        throw new UnauthorizedError("Incorrect credentials.");
     };
 
     //Compare the entered password with the hash in the database
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
         console.log(`[AuthService] loginUser: incorrect password for ${email}`);
-        throw new Error("incorect credentials");
+        throw new UnauthorizedError("Incorrect credentials.");
         
     }
 
