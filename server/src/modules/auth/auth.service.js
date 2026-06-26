@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import * as authRepository from './auth.repository.js';
 import { BadRequestError, UnauthorizedError } from '../../../shared/errors/AppError.js';
 
@@ -65,7 +66,19 @@ export const loginUser = async (email, password) => {
     //return user without password
     const userResponse = user.toJSON();
     delete userResponse.password;
-    return userResponse;
+
+    //generate JWT token 
+    const token = jwt.sign(
+        //payload data user
+        { id: userResponse.id, username: userResponse.username},
+        //secret pasword .env
+        process.env.JWT_SECRET,
+        //EXPIRATION TIME 
+        { expiresIn: '1h' }
+    )
+    console.log(`[AuthService] loginUser: TOKEN GENERADO PARA ${email}`)
+
+    return {user: userResponse, token};
 };
 
 
