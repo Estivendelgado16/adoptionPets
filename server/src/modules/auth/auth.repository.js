@@ -14,3 +14,11 @@ export const createUser = async (userData) => {
     console.log(`[AuthRepository] createUser: user saved sucessful ${userData.email}`);
     return await User.create(userData)  
 };
+
+
+// Método adicional para buscar usuario por ID numérico
+export const findById = async (id) => {
+    console.log(`[AuthRepository] findById: buscando usuario con ID ${id}`);
+    // Buscamos usando el campo 'id' numérico que definimos en el schema
+    return await User.findOne({ id: Number(id) }); 
+};
