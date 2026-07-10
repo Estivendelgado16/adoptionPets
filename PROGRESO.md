@@ -61,56 +61,61 @@ pet-adoption-directory/
 #### Módulo Auth
 | Archivo              | Estado | Detalles |
 |----------------------|--------|----------|
-| auth.model.js        | ✅     | Schema Mongoose (`id` numérico, username, email, phone, password) |
-| auth.repository.js   | ✅     | `findByEmail()`, `findByUsername()`, `createUser()` |
-| auth.service.js      | ✅     | `registerUser()` (hashing, validación, errores específicos), `loginUser()` (comparación de contraseña, generación de JWT) |
+| auth.model.js        | ✅     | Schema Mongoose (`id` numérico auto-incrementado, username, email, phone, password) |
+| auth.repository.js   | ✅     | `findByEmail()`, `findByUsername()`, `createUser()`, `findById(id)`, `findLastUserId()` |
+| auth.service.js      | ✅     | `registerUser()` (hashing, validación, auto-incremento de ID, errores específicos), `loginUser()` (comparación de contraseña, generación de JWT) |
 | auth.controller.js   | ✅     | `register` (201), `login` (200), ambos con try/catch y `next(err)` |
 | auth.routes.js       | ✅     | `POST /register`, `POST /login` |
+
+#### Seguridad y Middlewares
+| Archivo                          | Estado | Detalles |
+|----------------------------------|--------|----------|
+| shared/middlewares/authMiddleware.js | ✅ | `protectRoute`: extrae token del header, verifica JWT, busca usuario por ID, adjunta a `req.user` |
+| shared/middlewares/errorHandler.js   | ✅ | Middleware global que procesa `AppError`, errores de Mongoose (duplicados, validación, cast), y errores no controlados |
+| shared/errors/AppError.js            | ✅ | Clases: `AppError`, `BadRequestError` (400), `UnauthorizedError` (401), `NotFoundError` (404) |
 
 #### Configuración General
 | Archivo             | Estado | Detalles |
 |---------------------|--------|----------|
 | index.js            | ✅     | Punto de entrada. Conecta DB, monta rutas (`/api/pets`, `/api/stories`, `/api/auth`), middleware de logging y errores |
-| shared/database/connection.js | ✅ | Conexión a MongoDB Atlas con dotenv, eventos de conexión, manejo de errores |
-| shared/errors/AppError.js | ✅ | Clases de error personalizadas (`AppError`, `BadRequestError`, `UnauthorizedError`, `NotFoundError`) |
-| shared/middlewares/errorHandler.js | ✅ | Middleware global de errores que procesa AppError y errores de Mongoose |
-| seed.js             | ✅     | Poblado de base de datos con pets (2) y stories (4) con datos de Unsplash, uso de IDs numéricos |
+| shared/database/connection.js | ✅ | Conexión a MongoDB Atlas/local con dotenv, eventos de conexión, manejo de errores |
+| seed.js             | ✅     | Poblado de base de datos con pets (2) y stories (4) con datos de Unsplash, IDs numéricos |
 | .env                | ✅     | Variables `URI` y `JWT_SECRET` |
 | package.json        | ✅     | Dependencias: express, mongoose, cors, dotenv, bcryptjs, jsonwebtoken |
 | app.js              | ❌     | Archivo vacío, sin uso |
 
 ---
 
-## 🔴 Pendientes / Problemas
+## 🔌 Endpoints del API (Backend)
 
-### 🚨 Crítico: Conexión a MongoDB Atlas
-- **Error:** `MongooseServerSelectionError` al iniciar el servidor.
-- **Causa probable:** Firewall de la red local (Riwi) bloqueando salida al puerto 27017.
-- **Solución Sugerida:** Usar MongoDB local o revisar configuración de red/firewall.
-
-### 📝 Tareas pendientes (Backend)
-
-| Prioridad | Tarea | Notas |
-|-----------|-------|-------|
-| 🔴 Alta | Resolver conexión a BD | Cambiar URI a `mongodb://localhost:27017/petadoption` o revisar firewall |
-| 🔴 Alta | Middleware de Autenticación JWT (`shared/middlewares/authMiddleware.js`) | Verificar token en header `Authorization` y adjuntar `req.user` |
-| 🟡 Media | Proteger Rutas del Backend | Aplicar middleware de autenticación a rutas sensibles (ej: si añadimos POST/PUT/DELETE para mascotas) |
-| 🟡 Media | Manejo de Errores en Frontend | Mostrar errores de registro/login al usuario |
-| 🟢 Baja | Crear formularios Frontend (Login/Register) | Crear UI para interactuar con el API de Auth |
-| 🟢 Baja | Mejorar Seed Data | Añadir más mascotas y historias para pruebas |
+| Método | Ruta                | Descripción | Protegida |
+|--------|---------------------|-------------|-----------|
+| GET    | `/api/pets`         | Lista todas las mascotas | ❌ |
+| GET    | `/api/pets/:id`     | Mascota por ID numérico | ❌ |
+| GET    | `/api/stories`      | Lista todas las historias | ❌ |
+| GET    | `/api/stories/:id`  | Historia por ID numérico | ❌ |
+| POST   | `/api/auth/register`| Registro de usuario (auto-incrementa id) | ❌ |
+| POST   | `/api/auth/login`   | Inicio de sesión (retorna user + JWT token) | ❌ |
 
 ---
 
-## 🔌 Endpoints del API (Backend)
+## 📝 Tareas pendientes
 
-| Método | Ruta                | Descripción |
-|--------|---------------------|-------------|
-| GET    | `/api/pets`         | Lista todas las mascotas |
-| GET    | `/api/pets/:id`     | Mascota por ID numérico |
-| GET    | `/api/stories`      | Lista todas las historias |
-| GET    | `/api/stories/:id`  | Historia por ID numérico |
-| POST   | `/api/auth/register`| Registro de usuario |
-| POST   | `/api/auth/login`   | Inicio de sesión (retorna user + token) |
+### Frontend (Prioridad Alta)
+| Prioridad | Tarea | Notas |
+|-----------|-------|-------|
+| 🔴 Alta | Formulario de Login | UI para iniciar sesión, guardar token, consumir `/api/auth/login` |
+| 🔴 Alta | Formulario de Registro | UI para registrar usuario, consumir `/api/auth/register` |
+| 🔴 Alta | Manejo de sesión | Guardar token en localStorage, adjuntar a headers en requests autenticados |
+| 🟡 Media | Proteger rutas del Frontend | Redirigir a login si no hay token |
+| 🟡 Media | Mostrar errores de auth al usuario | Consumir `errorHandler` del backend para mostrar mensajes claros |
+
+### Backend (Prioridad Baja)
+| Prioridad | Tarea | Notas |
+|-----------|-------|-------|
+| 🟢 Baja | Proteger rutas del Backend | Aplicar `protectRoute` a rutas sensibles (ej: futuro POST /api/pets) |
+| 🟢 Baja | Mejorar Seed Data | Añadir más mascotas e historias para pruebas |
+| 🟢 Baja | Limpiar `app.js` | Archivo vacío, eliminar o reutilizar |
 
 ---
 
@@ -118,5 +123,5 @@ pet-adoption-directory/
 
 - **Frontend:** React 19, Vite 8, React Router 7, MUI 9, Bootstrap 5
 - **Backend:** Express 5, Mongoose 9, bcryptjs, jsonwebtoken, dotenv
-- **Base de datos:** MongoDB Atlas (conectar con URI de `.env`)
+- **Base de datos:** MongoDB Atlas / Local
 - **Paquetería:** pnpm
