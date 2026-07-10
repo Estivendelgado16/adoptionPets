@@ -22,3 +22,13 @@ export const findById = async (id) => {
     // Buscamos usando el campo 'id' numérico que definimos en el schema
     return await User.findOne({ id: Number(id) }); 
 };
+
+// Busca el usuario con el con el ID mas alto para auto-incrementar 
+export const findLastUserId = async () => {
+    console.log(`[AuthRepository] findLastUserId: buscando ultimo ID de usuario`);
+
+    // ordena por ID desendente 
+    const lastuser = await User.findOne().sort({ id: -1 });
+
+    return (lastuser && lastuser.id) ? lastuser.id : 0;
+}

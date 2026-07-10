@@ -25,9 +25,14 @@ export const registerUser = async ({ username, email, phone, password}) => {
     // Encrypt the password (hashing)
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+    
+    //obtener el ultimo ID y auto-incremento
+    const lastId = await authRepository.findLastUserId();
+    const newId = lastId + 1;
 
     // Saved new user in dataBase
     const newUser = await authRepository.createUser({
+        id: newId,
         username,
         email,
         phone,
@@ -35,6 +40,7 @@ export const registerUser = async ({ username, email, phone, password}) => {
     });
 
     console.log(`[AuthService] register: register sucessfull for ${email}`);
+
 
     // return the user but without password
     const userResponse = newUser.toJSON();
